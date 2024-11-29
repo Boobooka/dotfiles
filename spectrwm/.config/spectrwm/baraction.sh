@@ -34,8 +34,8 @@ mem() {
 }
 
 hdd() {
-  df -h | awk 'NR==5 {print $3,$5}' | read used perc
-  echo -e "Hdd: $used ($perc)"
+  df -h | awk 'NR==5 {print $4,$5}' | read free perc
+  echo -e "Hdd: $free ($perc)"
 }	
 
 while :; do
