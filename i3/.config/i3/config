@@ -11,6 +11,7 @@
 
 #### Nitrogen háttér
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #### Picom start
 exec picom
@@ -123,9 +124,9 @@ bindsym $mod+d focus child
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Terminál"
 set $ws2 "2: Web"
-set $ws3 "3: Játék"
-set $ws4 "4: Chat"
-set $ws5 "5"
+set $ws3 "3: Dolgozós"
+set $ws4 "4: Játék"
+set $ws5 "5: Chat"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -143,6 +144,8 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+bindsym Control+Mod1+Right workspace next
+bindsym Control+Mod1+Left workspace prev
 
 workspace_auto_back_and_forth yes
 
@@ -157,6 +160,8 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym Control+Shift+Mod1+Right move container to workspace next
+bindsym Control+Shift+Mod1+Left move container to workspace prev
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -212,7 +217,7 @@ bindsym XF86Mail exec cool-retro-term --fullscreen
 bindsym $mod+n exec nemo
 
 #### Auto indítás
-exec --no-startup-id i3-msg '2: Web; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg '2: Web; exec firefox'
 
 #### Style
 hide_edge_borders smart_no_gaps
@@ -231,6 +236,6 @@ smart_gaps on
 # client.background       #ffffff
 
 ### Rules
-assign [class="Caprine"] number "4: Chat"
-assign [class="discord"] number "4: Chat"
-assign [class="steam"] number "3: Játék"
+assign [class="Caprine"] number "5: Chat"
+assign [class="discord"] number "5: Chat"
+assign [class="steam"] number "4: Játék"
