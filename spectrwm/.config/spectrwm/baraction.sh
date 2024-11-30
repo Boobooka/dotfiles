@@ -34,7 +34,7 @@ mem() {
 }
 
 hdd() {
-  df -h | awk 'NR==5 {print $4,$5}' | read free perc
+  df -h | awk '/\/home/ {print $4,$5}' | read free perc
   echo -e "Hdd: $free ($perc)"
 }	
 
