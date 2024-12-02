@@ -8,7 +8,7 @@ vol() {
   icon="󰕾"
   [[ $mic = off ]] && micoff=" +@fg=2;󰍭+@fg=0;"
   fg=3
-  [[ $vol = "0%" ]] && icon="󰝟+"
+  [[ $vol = "0%" ]] && icon="󰝟" && fg=0
   [[ $state = off ]] &&  icon="󰖁" && fg=2
    
   echo -e "+@fg=$fg;$icon+@fg=0; $vol$micoff"
