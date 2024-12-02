@@ -10,8 +10,11 @@ vol() {
   fg=3
   [[ $vol = "0%" ]] && icon="󰝟" && fg=0
   [[ $state = off ]] &&  icon="󰖁" && fg=2
+  
+  batt=`bluetoothctl info 00:09:B0:2C:B6:B8 | awk '{gsub (/[)(]/, "")} END{print $4}'`
+  [[ -n $batt ]] && bt=" +@fg=4;󰥰+@fg=0; $batt%"    
    
-  echo -e "+@fg=$fg;$icon+@fg=0; $vol$micoff"
+  echo -e "+@fg=$fg;$icon+@fg=0; $vol$micoff$bt"
 }
 
 cpu() {
