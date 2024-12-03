@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-SLEEP_TIME=1
+SLEEP_TIME=2
 
 vol() {
   amixer get Master | awk -F "[][]" 'END{ print $2,$4}' | read vol state
@@ -44,8 +44,9 @@ mem() {
 }
 
 hdd() {
-  df -h | awk '/\/$/ {print $4,$5}' | read r_free r_perc
-  df -h | awk '/\/home$/ {print $4,$5}' | read h_free h_perc
+  DF=`df -h`
+  echo $DF | awk '/\/$/ {print $4,$5}' | read r_free r_perc
+  echo $DF | awk '/\/home$/ {print $4,$5}' | read h_free h_perc
   echo -e "+@fg=3;󱂵+@fg=0; $h_free ($h_perc) +@fg=3;+@fg=0; $r_free ($r_perc)"
 }	
 
