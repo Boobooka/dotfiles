@@ -40,7 +40,7 @@ mem() {
   }
   post="+@fg=0;"
   (( used /= 1024))
-  echo -e "+@fg=3;$post $used$me ($pre$p%$post)"
+  echo -e "+@fg=3;$post $used $me ($pre$p%$post)"
 }
 
 hdd() {
@@ -51,6 +51,6 @@ hdd() {
 }	
 
 while :; do
-	echo -e "$(hdd) $(cpu) $(mem) $(vol)"
+  echo -e "$(hdd) $(cpu) $(mem) $(vol)"
   sleep $SLEEP_TIME
 done
