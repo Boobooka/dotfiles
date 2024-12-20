@@ -6,7 +6,7 @@
 
 # should get 2 parameters text and color
 color() {
-  local colors=(active alert icon bt) # Anything else will get the default color (0)
+  local colors=(active alert icon bt weather) # Anything else will get the default color (0)
   echo -e "+@fg=${colors[(I)$2]};$1+@fg=0;"  
 }
 
@@ -81,7 +81,8 @@ clk() {
 }
 
 weather() {
-  echo "$(<~/.config/weather.txt)"
+  txt=$(<~/.config/weather.txt)
+  echo -e "$(color $txt weather)"
 }
 
 while :; do
