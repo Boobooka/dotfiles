@@ -80,7 +80,11 @@ clk() {
   date "+%Y %b %d.%a %R"
 }
 
+weather() {
+  echo "$(<~/.config/weather.txt)"
+}
+
 while :; do
-  echo -e "+|L$(gI monitor) +N:+I <+D> +S +L+|T(+w|+M) +|C <+W> +|R $(hdd) $(cpu) $(mem) $(vol) +|T$(clk)"
+  echo -e "+|L$(gI monitor) +N:+I <+D> +S +L+|T(+w|+M) +|C <+W> +|R $(weather) $(hdd) $(cpu) $(mem) $(vol) +|T$(clk)"
   sleep 1
 done

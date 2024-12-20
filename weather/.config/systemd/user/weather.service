@@ -1,0 +1,9 @@
+[Unit]
+Description=Wttr.in-ről bemásolja az időjárási infókat w.txt-be
+
+[Service]
+Type=simple
+ExecStart=%h/bin/wttr.sh
+
+[Install]
+WantedBy=default.target

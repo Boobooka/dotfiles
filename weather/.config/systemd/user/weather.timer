@@ -1,0 +1,14 @@
+[Unit]
+Description=Letölti az időjárási infókat minden 20. percben.
+RefuseManualStart=no  # Allow manual starts
+RefuseManualStop=no   # Allow manual stops
+
+[Timer]
+#Execute job if it missed a run due to machine being off
+Persistent=true
+OnBootSec=5
+OnUnitActiveSec=20min
+Unit=weather.service
+
+[Install]
+WantedBy=timers.target
