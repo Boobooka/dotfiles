@@ -81,11 +81,12 @@ clk() {
 }
 
 weather() {
-  txt=$(<~/.config/weather.txt)
-  echo -e "$(color $txt weather)"
+  awk '{print $1,$2,$3,$4}' ~/.config/weather.txt | read location i_cond temp i_moon
+  txt="+@fn=1;$i_moon+@fn=0; $location +@fn=1;$i_cond+@fn=0;$temp"
+  echo -e "$(color ${txt/°/ } weather)"
 }
 
 while :; do
-  echo -e "+|1L$(gI monitor) +N:+I <+D> +S +L +|1C(+w|+M) <+W> +|2R $(weather) $(hdd) $(cpu) $(mem) $(vol) $(clk)"
+  echo -e "+|2L$(gI monitor) +N:+I <+D> +S +L (+w|+M) +|C<+W> +|2R$(hdd) $(cpu) $(mem) $(vol) +|T$(weather)+|T$(clk)"
   sleep 1
 done
