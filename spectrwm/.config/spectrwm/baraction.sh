@@ -81,8 +81,8 @@ clk() {
 }
 
 weather() {
-  awk '{print $1,$2,$3,$4,$5}' ~/.config/weather.txt | read loc1 loc2 i_cond temp i_moon
-  txt="+@fn=1;$i_moon+@fn=0; ${loc1/,/:} +@fn=1;$i_cond+@fn=0;$temp"
+  awk '{print $1,$2,$3}' ~/.config/weather.txt | read i_moon temp i_cond
+  txt="+@fn=1;$i_moon+@fn=0; $temp +@fn=1;$i_cond+@fn=0;"
   echo -e "$(color $txt weather)"
 }
 
