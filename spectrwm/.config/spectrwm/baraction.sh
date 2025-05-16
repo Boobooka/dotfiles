@@ -87,6 +87,6 @@ weather() {
 }
 
 while :; do
-  echo -e "+|2L$(gI monitor) +N:+I <+D> +S +L (+w|+M) +|C<+W> +|2R$(hdd) $(cpu) $(mem) $(vol) +|T$(weather)+|T$(clk)"
+  echo -e "+|2L$(gI monitor) +N:+I +S +L (+w|+M) +|C<+W> +|2R$(hdd) $(cpu) $(mem) $(vol) +|T$(weather)+|T$(clk)"
   sleep 1
 done
