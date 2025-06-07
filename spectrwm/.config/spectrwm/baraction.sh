@@ -36,7 +36,7 @@ gI() {
 vol() {
   amixer get Master | awk -F "[][]" 'END{ print $2,$4}' | read vol state
   mic=`amixer get Capture | awk -F "[][]" 'END{print $4}'`
-  batt=`bluetoothctl info 00:09:B0:2C:B6:B8 | awk '{gsub (/[)(]/, "")} END{print $4}'`
+  batt=`bluetoothctl info 00:09:B0:2C:B6:B8 | awk -F "[)(]" '/Battery/ {print $2}'`
 
   [[ $vol = "0%" ]] && icon=$(gI vol0 def) || icon=$(gI vol)
   [[ $state = off ]] && icon=$(gI vol-mute alert)
