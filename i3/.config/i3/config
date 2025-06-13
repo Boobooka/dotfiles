@@ -14,7 +14,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #### Picom start
-exec picom
+# exec --no-startup-id picom
 
 set $mod Mod4
 
@@ -43,8 +43,8 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -59,6 +59,7 @@ tiling_drag modifier titlebar
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec cool-retro-term --fullscreen
+bindsym Control+Mod1+t exec ghostty
 
 # kill focused window
 bindsym $mod+q kill
@@ -66,7 +67,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-bindsym $mod+p exec "rofi -modi drun,run -show drun -show-icons"
+bindsym $mod+p exec "rofi -modi drun,window,run -show drun -show-icons"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -214,11 +215,11 @@ bar {
 
 ################ Saját billentyű kombinációk
 bindsym XF86HomePage exec firefox
-bindsym XF86Mail exec cool-retro-term --fullscreen
+#bindsym XF86Mail exec cool-retro-term --fullscreen
 bindsym $mod+n exec nemo
 
 #### Auto indítás
-exec --no-startup-id i3-msg '2: Web; exec firefox'
+# exec --no-startup-id i3-msg '2: Web; exec firefox'
 
 #### Style
 hide_edge_borders smart_no_gaps
