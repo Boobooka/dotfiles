@@ -7,10 +7,13 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "wlr/workspaces",
+        "wlr/mode",
+        "wlr/scratchpad",
         "hyprland/workspaces",
         "hyprland/mode",
         "hyprland/scratchpad",
-        "custom/media"
+	"custom/media"
     ],
     "modules-center": [
         "hyprland/window"
@@ -19,7 +22,7 @@
         "mpd",
         "idle_inhibitor",
         "pulseaudio",
-    //   "network",
+        "network",
         "power-profiles-daemon",
         "cpu",
         "memory",
@@ -163,7 +166,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "{gwaddr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
