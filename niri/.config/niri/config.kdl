@@ -153,6 +153,18 @@ layout {
         // top 64
         // bottom 64
     }
+
+    tab-indicator {
+        width 4
+        gap 4
+        length total-proportion=0.5
+        position "left"
+        place-within-column
+        gaps-between-tabs 8
+        corner-radius 4
+        inactive-color "#62559e"
+        active-color "#8b849e"
+    }
 }
 
 spawn-at-startup "waybar"
