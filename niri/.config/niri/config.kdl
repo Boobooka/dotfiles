@@ -105,6 +105,8 @@ layout {
         inactive-color "#505050"
         active-gradient from="#62559e" to="#87559e" angle=45 relative-to="workspace-view"
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+
+		urgent-color "#900"
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -164,6 +166,7 @@ layout {
         corner-radius 4
         inactive-color "#62559e"
         active-color "#8b849e"
+		urgent-color "#900"
     }
 }
 
@@ -423,4 +426,5 @@ binds {
     Mod+N { spawn "nemo"; }
     Mod+Ctrl+F { spawn "firefox"; }
     Mod+Ctrl+B { spawn "brave"; }
+	Mod+Ctrl+Q { spawn "qutebrowser"; }
 }
