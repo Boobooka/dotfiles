@@ -10,7 +10,8 @@ input {
     keyboard {
         xkb {
             layout "hu"
-            variant "nodeadkeys"
+            //variant "nodeadkeys"
+			options "numpad:mac,compose:rctrl"
         }
         // Enable numlock on startup, omitting this setting disables it.
         numlock
@@ -170,7 +171,7 @@ layout {
     }
 }
 
-spawn-at-startup "waybar"
+spawn-at-startup "waybar" "-c" "/home/booboo/.config/niri/waybar-config.jsonc" "-s" "/home/booboo/.config/niri/waybar-style.css"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "niri" "msg" "action" "focus-workspace" "2"
