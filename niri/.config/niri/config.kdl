@@ -310,8 +310,8 @@ binds {
     Mod+End   { focus-column-last; }
 
     Mod+Shift+Left  { move-column-left; }
-    Mod+Shift+Down  { move-window-down; }
-    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
     Mod+Shift+Right { move-column-right; }
     Mod+Shift+Home  { move-column-to-first; }
     Mod+Shift+End   { move-column-to-last; }
@@ -429,4 +429,5 @@ binds {
     Mod+Ctrl+F { spawn "firefox"; }
     Mod+Ctrl+B { spawn "brave"; }
 	Mod+Ctrl+Q { spawn "qutebrowser"; }
+	Mod+Alt+W { spawn "waypaper" "--random"; }
 }

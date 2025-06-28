@@ -5,35 +5,32 @@
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+
+	// Choose the order of the modules
     "modules-left": [
         "niri/workspaces",
-		"custom/media"
+		"niri/window"
     ],
-    "modules-center": [
-        "niri/window"
+    
+	"modules-center": [
+		"clock",
+		"custom/weather"
     ],
-    "modules-right": [
-        "mpd",
+    
+	"modules-right": [
         "idle_inhibitor",
         "pulseaudio",
-        //"network",
 		"custom/net",
         "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
-        "backlight",
-        "keyboard-state",
-//        "niri/language",
-        "clock",
         "tray"
     ],
+
     // Modules configuration
     "niri/workspaces": {
-//         "disable-scroll": false,
 		"all-outputs": true,
-//         "warp-on-scroll": true,
         "format": "{icon}",
 		"format-icons": {
 			"outlander": "",
@@ -41,74 +38,53 @@
 			"Game": "",
             "chat": "",
             "urgent": "",
-//            "focused": "",
+            //"focused": "",
             "default": ""
 		}
 	},
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
+
 	"custom/net": {
 		"format": "{}",
 		"exec": "dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g'",
 		"interval": "3600",
-		"on-click": "dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g' | wl-copy"
+		"on-click": "dig +short txt ch whoami.cloudflare @1.0.0.1 | sed -r 's/\"//g' | wl-copy"
 	},
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "idle_inhibitor": {
+	
+	"custom/weather": {
+		"exec": "cat ~/.config/weather.txt",
+		//"exec": "curl -s 'https://wttr.in/Pécs?format=2' | sed -r 's/ +/ /g'",
+		"interval": 1200,
+		"on-click": "yad --html --uri='https://wttr.in/Pécs' --center --fixed --width=1000 --height=680 --timeout=60 --timeout-indicator=right"
+	},
+        
+	"idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "",
             "deactivated": ""
         }
     },
-    "tray": {
+    
+	"tray": {
         // "icon-size": 21,
         "spacing": 10
     },
-    "clock": {
+    
+	"clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
-    "cpu": {
+    
+	"cpu": {
         "format": "{usage}% ",
         "tooltip": true
     },
-    "memory": {
+    
+	"memory": {
         "format": "{}% "
     },
-    "temperature": {
+    
+	"temperature": {
         "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
@@ -116,12 +92,8 @@
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    "power-profiles-daemon": {
+        
+	"power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
       "tooltip": true,
@@ -132,7 +104,8 @@
         "power-saver": ""
       }
     },
-    "network": {
+    
+	"network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr} ",
@@ -142,6 +115,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
 		"on-click": "myip"
     },
+
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
