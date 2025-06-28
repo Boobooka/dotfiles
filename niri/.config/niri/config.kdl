@@ -200,6 +200,7 @@ environment {
     MOZ_ENABLE_WAYLAND "1"
     QT_QPA_PLATFORM "wayland"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+	PROTON_ENABLE_WAYLAND "1"
 }
 
 prefer-no-csd
@@ -245,6 +246,12 @@ window-rule {
     match app-id="discord"
     
     open-on-workspace "chat"
+}
+
+window-rule {
+	match app-id="Calculator"
+
+	open-floating true
 }
 
 window-rule {
