@@ -46,7 +46,7 @@
 	"custom/net": {
 		"format": "{}",
 		"exec": "dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g'",
-		"interval": "3600",
+		"interval": "1200",
 		"on-click": "dig +short txt ch whoami.cloudflare @1.0.0.1 | sed -r 's/\"//g' | wl-copy"
 	},
 	
