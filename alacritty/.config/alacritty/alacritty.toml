@@ -14,7 +14,8 @@ yellow = "#657b83"
 
 [colors.cursor]
 cursor = "#839496"
-text = "#002b36"
+#text = "#002b36"
+text = "#6e59bf"
 
 [colors.normal]
 black = "#073642"
@@ -27,8 +28,10 @@ white = "#eee8d5"
 yellow = "#b58900"
 
 [colors.primary]
-background = "#002b36"
-foreground = "#839496"
+#background = "#002b36"
+#foreground = "#839496"
+background = "#1a063f"
+foreground = "#b5a0d6"
 
 [cursor]
 style = "Block"
@@ -170,12 +173,15 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [window]
 decorations = "full"
-opacity = 0.9
-startup_mode = "Windowed"
+opacity = 0.96
+#startup_mode = "Windowed"
+startup_mode = "Maximized"
 
 [window.dimensions]
-columns = 80
-lines = 24
+#columns = 80
+columns = 0
+#lines = 24
+lines = 0
 
 [general]
 live_config_reload = false
