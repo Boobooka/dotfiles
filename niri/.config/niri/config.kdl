@@ -437,6 +437,8 @@ binds {
     Mod+Ctrl+F { spawn "firefox"; }
     Mod+Ctrl+B { spawn "brave"; }
 	Mod+Ctrl+Q { spawn "qutebrowser"; }
-	Mod+Alt+W { spawn "waypaper" "--random"; }
 	Mod+Ctrl+H { spawn "helium-browser"; }
+	Mod+Alt+W { spawn "waypaper" "--random"; }
+	Mod+Ctrl+KP_Add { spawn "gnome-calculator"; }
+
 }
